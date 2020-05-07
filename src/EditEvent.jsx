@@ -1,6 +1,6 @@
 import React from 'react';
 
-const EditEvent = () => {
+const EditEvent = props => {
     return (
         <div className='edit-event'>
             <div className='edit-event__input-group'>
@@ -15,7 +15,7 @@ const EditEvent = () => {
                 <label htmlFor='name'>minute: </label>
                 <input type='text' id='minute' name='minute' />
             </div>
-            <button>ok</button>
+            <button onClick={() => props.onSave()} >ok</button>
             <button>cancel</button>
         </div>
     )
