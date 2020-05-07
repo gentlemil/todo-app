@@ -5,15 +5,30 @@ const EditEvent = props => {
         <div className='edit-event'>
             <div className='edit-event__input-group'>
                 <label htmlFor='name'>name: </label>
-                <input type='text' id='name' name='name' />
+                <input
+                    type='text'
+                    id='name'
+                    name='name'
+                    onChange={e => console.log(e.target.name, e.target.value)}
+                />
             </div>
             <div className='edit-event__input-group'>
                 <label htmlFor='name'>hour: </label>
-                <input type='text' id='hour' name='hour' />
+                <input
+                    type='text'
+                    id='hour'
+                    name='hour'
+                    onChange={e => console.log(e.target.name, e.target.value)}
+                />
             </div>
             <div className='edit-event__input-group'>
                 <label htmlFor='name'>minute: </label>
-                <input type='text' id='minute' name='minute' />
+                <input
+                    type='text'
+                    id='minute'
+                    name='minute'
+                    onChange={e => console.log(e.target.name, e.target.value)}
+                />
             </div>
             <button onClick={() => props.onSave()} >ok</button>
             <button>cancel</button>
