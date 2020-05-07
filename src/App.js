@@ -9,6 +9,11 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      now: {
+        hour: new Date().getHours(),
+        minute: new Date().getMinutes(),
+        seconds: new Date().getSeconds(),
+      },
       events: [
         { id: 0, name: 'breakfast', hour: 7, minute: 0 },
         { id: 1, name: 'lunch', hour: 15, minute: 0 },
@@ -22,6 +27,21 @@ class App extends Component {
         // czas nie moze byc ujemny, dlatego przyjmujemy -1 (nie bedzie on wyswietlany wtedy w ogole)
       }
     };
+  }
+
+  timer = () => {
+    this.setState({
+      now: {
+        hour: new Date().getHours(),
+        minute: new Date().getMinutes(),
+        seconds: new Date().getSeconds(),
+      }
+    });
+  }
+
+  componentDidMount() {
+    const intervvalId = setInterval(this.timer, 1000);
+    this.setState({ intervvalId: intervvalId })
   }
 
   handleEditEvent = val => {
@@ -104,6 +124,7 @@ class App extends Component {
           name={el.name}
           hour={el.hour}
           minute={el.minute}
+          timeNow={this.state.now}
           onRemove={id => this.handleRemoveEvent(id)}
           onEditInit={id => this.handleEditInit(id)}
 
