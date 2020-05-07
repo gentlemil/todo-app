@@ -12,9 +12,25 @@ class App extends Component {
         { id: 0, name: 'breakfast', time: '07:00' },
         { id: 1, name: 'lunch', time: '15:00' },
         { id: 2, name: 'practise', time: '20:00' },
-      ]
-    }
+      ],
+      editedEvents: {
+        id: '3',
+        name: '',
+        hour: '',
+        minute: ''
+      }
+    };
   }
+
+  handleEditEvent = val => {
+    // console.log(val)
+    this.setState(prevState => {
+      return {
+        editedEvents: Object.assign(prevState.editedEvents, val)
+      };
+    });
+  }
+
   render() {
     const events = this.state.events.map(el => {
       return <Countdown name={el.name} time={el.time} />
@@ -23,7 +39,9 @@ class App extends Component {
     return (
       <div className='app'>
         {events}
-        <EditEvent onSave={() => alert('A')} />
+        <EditEvent
+          onInputChange={val => this.handleEditEvent(val)}
+          onSave={() => alert('A')} />
       </div>
     )
   }
