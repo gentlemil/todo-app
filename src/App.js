@@ -40,6 +40,9 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const storageEvents = JSON.parse(localStorage.getItem('events')) || [];
+    this.setState({ events: storageEvents })
+    console.log(storageEvents)
     const intervvalId = setInterval(this.timer, 1000);
     this.setState({ intervvalId: intervvalId })
   }
