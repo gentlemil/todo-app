@@ -44,13 +44,15 @@ class App extends Component {
     this.setState({ intervvalId: intervvalId })
   }
 
+
   handleEditEvent = val => {
     // console.log(val)
     this.setState(prevState => {
       return {
         editedEvent: Object.assign(prevState.editedEvent, val)
       };
-    });
+    },
+      () => localStorage.setItem('events', JSON.stringify(this.state.events)));
   }
 
   // handleSaveEvent = () => {
@@ -90,7 +92,9 @@ class App extends Component {
   handleRemoveEvent = id => {
     this.setState(prevState => ({
       events: prevState.events.filter(el => el.id !== id)
-    }))
+    }),
+      () => localStorage.setItem('events', JSON.stringify(this.state.events))
+    );
   }
 
   // handleEditInit = id => {    //init od initialize czyli rozpocznij (rozp. edycje wydarzenia)
