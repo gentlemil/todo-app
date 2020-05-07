@@ -9,9 +9,9 @@ class App extends Component {
     super(props)
     this.state = {
       events: [
-        { id: 0, name: 'breakfast', time: '07:00' },
-        { id: 1, name: 'lunch', time: '15:00' },
-        { id: 2, name: 'practise', time: '20:00' },
+        { id: 0, name: 'breakfast', hour: '07', minute: '00' },
+        { id: 1, name: 'lunch', hour: '15', minute: '00' },
+        { id: 2, name: 'practise', hour: '20', minute: '00' },
       ],
       editedEvents: {
         id: '3',
@@ -33,7 +33,14 @@ class App extends Component {
 
   render() {
     const events = this.state.events.map(el => {
-      return <Countdown name={el.name} time={el.time} />
+      return (
+        <Countdown
+          key={el.id}
+          name={el.name}
+          hour={el.hour}
+          minute={el.minute}
+        />
+      );
     });
 
     return (
