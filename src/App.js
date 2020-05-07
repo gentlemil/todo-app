@@ -13,7 +13,7 @@ class App extends Component {
         { id: 1, name: 'lunch', hour: '15', minute: '00' },
         { id: 2, name: 'practise', hour: '20', minute: '00' },
       ],
-      editedEvents: {
+      editedEvent: {
         id: '3',
         name: '',
         hour: '',
@@ -26,9 +26,15 @@ class App extends Component {
     // console.log(val)
     this.setState(prevState => {
       return {
-        editedEvents: Object.assign(prevState.editedEvents, val)
+        editedEvent: Object.assign(prevState.editedEvent, val)
       };
     });
+  }
+
+  handleSaveEvent = () => {
+    this.setState(prevState => ({
+      events: [...prevState.events, prevState.editedEvent]
+    }));
   }
 
   render() {
@@ -48,7 +54,8 @@ class App extends Component {
         {events}
         <EditEvent
           onInputChange={val => this.handleEditEvent(val)}
-          onSave={() => alert('A')} />
+          onSave={() => this.handleSaveEvent()}
+        />
       </div>
     )
   }
