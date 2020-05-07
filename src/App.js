@@ -15,7 +15,7 @@ class App extends Component {
         { id: 2, name: 'practise', hour: '20', minute: '00' },
       ],
       editedEvent: {
-        id: 'uniqid()',
+        id: uniqid(),
         name: '',
         hour: '',
         minute: ''
@@ -36,7 +36,7 @@ class App extends Component {
     this.setState(prevState => ({
       events: [...prevState.events, prevState.editedEvent],
       editedEvent: {
-        id: 'uniqid()',
+        id: uniqid(),
         name: '',
         hour: '',
         minute: ''
@@ -44,14 +44,22 @@ class App extends Component {
     }));
   }
 
+  handleRemoveEvent = id => {
+    this.setState(prevState => ({
+      events: prevState.events.filter(el => el.id !== id)
+    }))
+  }
+
   render() {
     const events = this.state.events.map(el => {
       return (
         <Countdown
-          key={el.id}
+          key={el.id}   //informacja dla Reacta
+          id={el.id}    //informacja dla naszego komponentu
           name={el.name}
           hour={el.hour}
           minute={el.minute}
+          onRemove={id => this.handleRemoveEvent(id)}
         />
       );
     });
