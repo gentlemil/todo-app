@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Countdown from './Countdown';
+import EditEvent from './EditEvent';
 
 import './App.css';
 
@@ -22,6 +23,7 @@ class App extends Component {
     return (
       <div className='app'>
         {events}
+        <EditEvent />
       </div>
     )
   }
