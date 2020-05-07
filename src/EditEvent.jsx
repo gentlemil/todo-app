@@ -16,6 +16,9 @@ const EditEvent = props => {
         isValidHour(props.hour) &&
         isValidMinute(props.minute);
 
+    const isFormEmpty =
+        props.name === '' && props.hour === -1 && props.minute === -1;
+
     return (
         <div className='edit-event'>
             <div className='edit-event__input-group'>
@@ -59,8 +62,8 @@ const EditEvent = props => {
                 // onChange={e => console.log(e.target.name, e.target.value)}
                 />
             </div>
-            <button disabled={!isFormValid} onClick={() => props.onSave()} >ok</button>
-            <button>cancel</button>
+            <button disabled={!isFormValid} onClick={() => props.onSave()} >OK</button>
+            <button disabled={isFormEmpty} onClick={() => props.onCancel()}>CANCEL</button>
         </div>
     )
 };
@@ -71,6 +74,7 @@ EditEvent.propTypes = {
     minute: PropTypes.number,
     onInputChange: PropTypes.func,
     onSave: PropTypes.func,
+    onCancel: PropTypes.func,
 
 }
 

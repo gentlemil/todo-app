@@ -89,6 +89,12 @@ class App extends Component {
     }));
   }
 
+  handleEditCancel = () => {
+    this.setState({
+      editedEvent: { id: uniqid(), name: '', hour: -1, minute: -1 }
+    });
+  }
+
   render() {
     const events = this.state.events.map(el => {
       return (
@@ -100,6 +106,7 @@ class App extends Component {
           minute={el.minute}
           onRemove={id => this.handleRemoveEvent(id)}
           onEditInit={id => this.handleEditInit(id)}
+
         />
       );
     });
@@ -113,6 +120,7 @@ class App extends Component {
           minute={this.state.editedEvent.minute}
           onInputChange={val => this.handleEditEvent(val)}
           onSave={() => this.handleSaveEvent()}
+          onCancel={() => this.handleEditCancel()}
         />
       </div>
     )
