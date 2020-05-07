@@ -10,15 +10,16 @@ class App extends Component {
     super(props)
     this.state = {
       events: [
-        { id: 0, name: 'breakfast', hour: '07', minute: '00' },
-        { id: 1, name: 'lunch', hour: '15', minute: '00' },
-        { id: 2, name: 'practise', hour: '20', minute: '00' },
+        { id: 0, name: 'breakfast', hour: 7, minute: 0 },
+        { id: 1, name: 'lunch', hour: 15, minute: 0 },
+        { id: 2, name: 'practise', hour: 20, minute: 0 },
       ],
       editedEvent: {
         id: uniqid(),
         name: '',
-        hour: '',
-        minute: ''
+        hour: -1,
+        minute: -1
+        // czas nie moze byc ujemny, dlatego przyjmujemy -1 (nie bedzie on wyswietlany wtedy w ogole)
       }
     };
   }
@@ -61,7 +62,7 @@ class App extends Component {
       }
       return {
         events: updatedEvents,
-        editedEvent: { id: uniqid(), name: '', hour: '', minute: '' }
+        editedEvent: { id: uniqid(), name: '', hour: -1, minute: -1 }
       };
     });
   }
