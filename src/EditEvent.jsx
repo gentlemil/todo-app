@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
     isValidNumberInput,
+    parseInputAsNumber,
 
 } from './utils'
 
@@ -27,7 +28,10 @@ const EditEvent = props => {
                     name='hour'
                     value={props.hour === -1 ? '' : props.hour}
                     onKeyPress={e => isValidNumberInput(e)}
-                    onChange={e => props.onInputChange({ [e.target.name]: e.target.value })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
+                    onChange={e =>
+                        props.onInputChange({
+                            [e.target.name]: parseInputAsNumber(e.target.value)
+                        })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
                 // onChange={e => console.log(e.target.name, e.target.value)}
                 />
             </div>
@@ -38,7 +42,11 @@ const EditEvent = props => {
                     id='minute'
                     name='minute'
                     value={props.minute === -1 ? '' : props.minute}
-                    onKeyPress={e => isValidNumberInput(e)} onChange={e => props.onInputChange({ [e.target.name]: e.target.value })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
+                    onKeyPress={e => isValidNumberInput(e)}
+                    onChange={e =>
+                        props.onInputChange({
+                            [e.target.name]: parseInputAsNumber(e.target.value)
+                        })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
                 // onChange={e => console.log(e.target.name, e.target.value)}
                 />
             </div>
