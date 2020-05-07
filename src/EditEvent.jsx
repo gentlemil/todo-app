@@ -14,7 +14,6 @@ const EditEvent = props => {
                     id='name'
                     name='name'
                     value={props.name}
-                    onKeyPress={e => e.preventDefault()}
                     onChange={e => props.onInputChange({ [e.target.name]: e.target.value })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
                 // onChange={e => console.log(e.target.name, e.target.value)}
                 />

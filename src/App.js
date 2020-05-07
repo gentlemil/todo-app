@@ -44,6 +44,22 @@ class App extends Component {
     }));
   }
 
+  // handleSaveEvent = () => {
+  //   this.setState(prevState => {
+  //     const editedEventExists = prevState.events.find(
+  //       el => el.id === prevState.editedEvent.id
+  //     );
+  //     // console.log(editedEventExists);
+  //     let updatedEvents;
+  //     if (editedEventExists) {
+  //       updatedEvents = prevState.events.map(el => {
+  //         if (el.id === prevState.editedEvent.id) return prevState.editedEvent;
+  //         else return el;
+  //       });
+  //     }
+  //   });
+  // }
+
   handleRemoveEvent = id => {
     this.setState(prevState => ({
       events: prevState.events.filter(el => el.id !== id)
