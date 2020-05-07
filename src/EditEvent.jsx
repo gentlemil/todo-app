@@ -9,6 +9,7 @@ const EditEvent = props => {
                     type='text'
                     id='name'
                     name='name'
+                    value={props.name}
                     onChange={e => props.onInputChange({ [e.target.name]: e.target.value })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
                 // onChange={e => console.log(e.target.name, e.target.value)}
                 />
@@ -19,6 +20,7 @@ const EditEvent = props => {
                     type='text'
                     id='hour'
                     name='hour'
+                    value={props.hour}
                     onChange={e => props.onInputChange({ [e.target.name]: e.target.value })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
                 // onChange={e => console.log(e.target.name, e.target.value)}
                 />
@@ -29,6 +31,7 @@ const EditEvent = props => {
                     type='text'
                     id='minute'
                     name='minute'
+                    value={props.minute}
                     onChange={e => props.onInputChange({ [e.target.name]: e.target.value })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
                 // onChange={e => console.log(e.target.name, e.target.value)}
                 />

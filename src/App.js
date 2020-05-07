@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uniqid from 'uniqid';
 import Countdown from './Countdown';
 import EditEvent from './EditEvent';
 
@@ -14,7 +15,7 @@ class App extends Component {
         { id: 2, name: 'practise', hour: '20', minute: '00' },
       ],
       editedEvent: {
-        id: '3',
+        id: 'uniqid()',
         name: '',
         hour: '',
         minute: ''
@@ -33,7 +34,13 @@ class App extends Component {
 
   handleSaveEvent = () => {
     this.setState(prevState => ({
-      events: [...prevState.events, prevState.editedEvent]
+      events: [...prevState.events, prevState.editedEvent],
+      editedEvent: {
+        id: 'uniqid()',
+        name: '',
+        hour: '',
+        minute: ''
+      }
     }));
   }
 
@@ -53,6 +60,9 @@ class App extends Component {
       <div className='app'>
         {events}
         <EditEvent
+          name={this.state.editedEvent.name}
+          hour={this.state.editedEvent.hour}
+          minute={this.state.editedEvent.minute}
           onInputChange={val => this.handleEditEvent(val)}
           onSave={() => this.handleSaveEvent()}
         />
