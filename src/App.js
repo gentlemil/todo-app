@@ -50,6 +50,13 @@ class App extends Component {
     }))
   }
 
+  handleEditInit = id => {    //init od initialize czyli rozpocznij (rozp. edycje wydarzenia)
+    this.setState(prevState => ({
+      // editedEvent: prevState.events[id]   // to nie kopia tylko referencja do naszego obiektu
+      editedEvent: { ...prevState.events[id] }   // teraz tworzony jest nowy obiekt
+    }));
+  }
+
   render() {
     const events = this.state.events.map(el => {
       return (
@@ -60,6 +67,7 @@ class App extends Component {
           hour={el.hour}
           minute={el.minute}
           onRemove={id => this.handleRemoveEvent(id)}
+          onEditInit={id => this.handleEditInit(id)}
         />
       );
     });
