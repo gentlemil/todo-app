@@ -50,10 +50,19 @@ class App extends Component {
     }))
   }
 
-  handleEditInit = id => {    //init od initialize czyli rozpocznij (rozp. edycje wydarzenia)
+  // handleEditInit = id => {    //init od initialize czyli rozpocznij (rozp. edycje wydarzenia)
+  //   this.setState(prevState => ({
+  //     // editedEvent: prevState.events[id]   // to nie kopia tylko referencja do naszego obiektu
+  //     editedEvent: { ...prevState.events[id] }   // teraz tworzony jest nowy obiekt
+  //   }));
+  // }
+
+  handleEditInit = id => {
     this.setState(prevState => ({
-      // editedEvent: prevState.events[id]   // to nie kopia tylko referencja do naszego obiektu
-      editedEvent: { ...prevState.events[id] }   // teraz tworzony jest nowy obiekt
+      editedEvent: { ...prevState.events.find(el => el.id === id) }
+      // wyszukujemy po id wiec metoda wyszukuje obiekty sprawdzajac czy maja takie same id jak to wysylane do funkcji
+      //spread operator i wasy uzyte analog. jak wyzej aby stworzyc nowy edytowalny obiekt a nie korzystac z referencji
+      // 'oryginalnego' obiektu
     }));
   }
 
