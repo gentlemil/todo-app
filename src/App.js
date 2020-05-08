@@ -49,7 +49,6 @@ class App extends Component {
 
 
   handleEditEvent = val => {
-    // console.log(val)
     this.setState(prevState => {
       return {
         editedEvent: Object.assign(prevState.editedEvent, val)
@@ -58,24 +57,11 @@ class App extends Component {
       () => localStorage.setItem('events', JSON.stringify(this.state.events)));
   }
 
-  // handleSaveEvent = () => {
-  //   this.setState(prevState => ({
-  //     events: [...prevState.events, prevState.editedEvent],
-  //     editedEvent: {
-  //       id: uniqid(),
-  //       name: '',
-  //       hour: '',
-  //       minute: ''
-  //     }
-  //   }));
-  // }
-
   handleSaveEvent = () => {
     this.setState(prevState => {
       const editedEventExists = prevState.events.find(
         el => el.id === prevState.editedEvent.id
       );
-      // console.log(editedEventExists);
       let updatedEvents;
       if (editedEventExists) {
         updatedEvents = prevState.events.map(el => {
@@ -99,13 +85,6 @@ class App extends Component {
       () => localStorage.setItem('events', JSON.stringify(this.state.events))
     );
   }
-
-  // handleEditInit = id => {    //init od initialize czyli rozpocznij (rozp. edycje wydarzenia)
-  //   this.setState(prevState => ({
-  //     // editedEvent: prevState.events[id]   // to nie kopia tylko referencja do naszego obiektu
-  //     editedEvent: { ...prevState.events[id] }   // teraz tworzony jest nowy obiekt
-  //   }));
-  // }
 
   handleEditInit = id => {
     this.setState(prevState => ({

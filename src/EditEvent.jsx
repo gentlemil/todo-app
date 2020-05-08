@@ -29,7 +29,6 @@ const EditEvent = props => {
                     name='name'
                     value={props.name}
                     onChange={e => props.onInputChange({ [e.target.name]: e.target.value })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
-                // onChange={e => console.log(e.target.name, e.target.value)}
                 />
             </div>
             <div className='edit-event__input-group'>
@@ -44,7 +43,6 @@ const EditEvent = props => {
                         props.onInputChange({
                             [e.target.name]: parseInputAsNumber(e.target.value)
                         })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
-                // onChange={e => console.log(e.target.name, e.target.value)}
                 />
             </div>
             <div className='edit-event__input-group'>
@@ -59,7 +57,6 @@ const EditEvent = props => {
                         props.onInputChange({
                             [e.target.name]: parseInputAsNumber(e.target.value)
                         })}    //przyjmowany jest jeden obiekt, wiec tworzymy obiekt
-                // onChange={e => console.log(e.target.name, e.target.value)}
                 />
             </div>
             <button disabled={!isFormValid} onClick={() => props.onSave()} >OK</button>
