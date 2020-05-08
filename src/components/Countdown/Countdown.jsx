@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../node_modules/semantic-ui-css/semantic.css';
-import Overlay from './Overlay';
+import '../../../node_modules/semantic-ui-css/semantic.css';
+import Overlay from '../Overlay/Overlay';
 import {
     hourMinuteToSeconds,
     secondsToHourMinuteSecond,
 
-} from './utils'
+} from '../../utils';
 
 import './Countdown.css';
 

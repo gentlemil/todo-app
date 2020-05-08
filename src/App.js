@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Toolbar from './components/Toolbar/Toolbar'
+import SideDrawer from './components/SideDrawer/SideDrawer'
+import Backdrop from './components/Backdrop/Backdrop'
+
 import uniqid from 'uniqid';
-import Countdown from './Countdown';
-import EditEvent from './EditEvent';
+
+import Countdown from './components/Countdown/Countdown';
+import EditEvent from './components/EditEvent/EditEvent';
 
 import './App.css';
 
@@ -25,9 +31,20 @@ class App extends Component {
         hour: -1,
         minute: -1
         // czas nie moze byc ujemny, dlatego przyjmujemy -1 (nie bedzie on wyswietlany wtedy w ogole)
-      }
+      },
+      sideDrawerOpen: false,
     };
   }
+
+  drawerToggleClickHandler = () => {
+    this.setState((prevState) => {
+      return { sideDrawerOpen: !prevState.sideDrawerOpen };
+    })
+  };
+
+  backDropClickHandler = () => {
+    this.setState({ sideDrawerOpen: false })
+  };
 
   timer = () => {
     this.setState({
@@ -102,6 +119,13 @@ class App extends Component {
   }
 
   render() {
+
+    let backdrop;
+
+    if (this.state.sideDrawerOpen) {
+      backdrop = <Backdrop click={this.backDropClickHandler} />;
+    }
+
     const events = this.state.events.map(el => {
       return (
         <Countdown
@@ -120,6 +144,16 @@ class App extends Component {
 
     return (
       <div className='app'>
+
+        <Router>
+          <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
+          <SideDrawer show={this.state.sideDrawerOpen} />
+          {backdrop}
+          <Switch>
+            <Route component={EditEvent} path='/create' />
+          </Switch>
+        </Router>
+
         {events}
         <EditEvent
           name={this.state.editedEvent.name}

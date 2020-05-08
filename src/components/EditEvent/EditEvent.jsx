@@ -7,7 +7,7 @@ import {
     isValidHour,
     isValidMinute,
 
-} from './utils'
+} from '../../utils'
 
 const EditEvent = props => {
 
