@@ -39,4 +39,3 @@ export function secondsToHourMinuteSecond(s) {
     return `${hour}:${minute}:${seconds}`
 }
 
-// export function {}

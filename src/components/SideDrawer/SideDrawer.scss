@@ -1,14 +1,16 @@
 .side-drawer {
     height: 100%;
-    background: white;
+    // height: 80%;
+    background: rgba(46, 27, 9, 0.8);
     box-shadow: 1px 0px 7px rgb(0, 0, 0.5);
     position: fixed;
     top: 0;
-    left: 0;
-    width: 70%;
-    max-width: 400px;
+    left: 40%;
+    margin: 0 auto;
+    width: 435px;
     z-index: 200;
-    transform: translateX(-100%);
+    // transform: translateX(-100%);
+    transform: translateY(-150%);
     transition: transform 0.3s ease-out;
 
     ul {
@@ -23,7 +25,6 @@
 
             a {
                 color: sandybrown;
-                // color: white;
                 text-decoration: none;
                 font-size: 1.2rem;
 
@@ -38,11 +39,12 @@
 }
 
 .side-drawer.open {
-    transform: translateX(0);
+    transform: translateY(0);
+    // transform: translateX(0);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 600px) {
     .side-drawer {
-        display: none;
+        // display: none;
     }
 }

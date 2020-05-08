@@ -8,6 +8,7 @@ import uniqid from 'uniqid';
 
 import Countdown from './components/Countdown/Countdown';
 import EditEvent from './components/EditEvent/EditEvent';
+// import ListEvent from './components/ListEvent/ListEvent';
 
 import './App.css';
 
@@ -21,16 +22,17 @@ class App extends Component {
         seconds: new Date().getSeconds(),
       },
       events: [
-        { id: 0, name: 'breakfast', hour: 7, minute: 0 },
-        { id: 1, name: 'lunch', hour: 15, minute: 0 },
-        { id: 2, name: 'practise', hour: 20, minute: 0 },
+        { id: 0, name: 'breakfast', hour: 7, minute: 0, details: 'cikacaki cikacaki' },
+        { id: 1, name: 'lunch', hour: 15, minute: 0, details: 'cikacaki cikacaki' },
+        { id: 2, name: 'practise', hour: 20, minute: 0, details: 'cikacaki cikacaki' },
       ],
       editedEvent: {
         id: uniqid(),
-        name: '',
-        hour: -1,
-        minute: -1
+        name: 'TEST',
+        hour: 1,
+        minute: 1,
         // czas nie moze byc ujemny, dlatego przyjmujemy -1 (nie bedzie on wyswietlany wtedy w ogole)
+        details: 'aaaaaaa',
       },
       sideDrawerOpen: false,
     };
@@ -90,7 +92,7 @@ class App extends Component {
       }
       return {
         events: updatedEvents,
-        editedEvent: { id: uniqid(), name: '', hour: -1, minute: -1 }
+        editedEvent: { id: uniqid(), name: '', hour: -1, minute: -1, details: '' }
       };
     });
   }
@@ -114,7 +116,7 @@ class App extends Component {
 
   handleEditCancel = () => {
     this.setState({
-      editedEvent: { id: uniqid(), name: '', hour: -1, minute: -1 }
+      editedEvent: { id: uniqid(), name: '', hour: -1, minute: -1, details: '' }
     });
   }
 
@@ -134,6 +136,7 @@ class App extends Component {
           name={el.name}
           hour={el.hour}
           minute={el.minute}
+          details={el.details}
           timeNow={this.state.now}
           onRemove={id => this.handleRemoveEvent(id)}
           onEditInit={id => this.handleEditInit(id)}
@@ -149,16 +152,20 @@ class App extends Component {
           <Toolbar drawerClickHandler={this.drawerToggleClickHandler} />
           <SideDrawer show={this.state.sideDrawerOpen} />
           {backdrop}
-          <Switch>
+          {/* <Switch>
             <Route component={EditEvent} path='/create' />
-          </Switch>
+          </Switch> */}
         </Router>
 
         {events}
+
+        <div className='space'></div>
+
         <EditEvent
           name={this.state.editedEvent.name}
           hour={this.state.editedEvent.hour}
           minute={this.state.editedEvent.minute}
+          details={this.state.editedEvent.details}
           onInputChange={val => this.handleEditEvent(val)}
           onSave={() => this.handleSaveEvent()}
           onCancel={() => this.handleEditCancel()}

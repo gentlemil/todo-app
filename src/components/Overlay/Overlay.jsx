@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Overlay.css';
+import './Overlay.scss';
 
 class Overlay extends Component {
     constructor(props) {
@@ -27,9 +27,13 @@ class Overlay extends Component {
 
         return (
             <div className='overlay'>
-                <span onClick={() => this.toggleVisible()}><i className='icon info' /></span>
+                <span className='countdown__icons' onClick={() => this.toggleVisible()}>
+                    <i className='icon info' />
+                </span>
                 <div className={overlayClass}>
-                    <span onClick={() => this.toggleVisible()} className='overlay__close'><i className='icon close' /></span>
+                    <span onClick={() => this.toggleVisible()} className='overlay__close'>
+                        <i className='icon close' />
+                    </span>
                     {this.props.children}
                 </div>
             </div>

@@ -1,19 +1,33 @@
+.edit-event {
+    padding: 10px;
+}
+
 .edit-event__input-group input {
     border: 0;
     padding: 5px;
     width: 70%;
 }
 
+.edit-event .button-container {
+    display: flex;
+    justify-content: space-between;
+}
+
 .edit-event button {
     background: transparent;
-    border: 3px solid #fff;
-    color: #fff;
+    border: 3px solid #2e1b09;
+    background: rgba(46, 27, 9, 0.23);
+    color: #2e1b09;
     font-size: 1.4rem;
-    margin-top: 10px;
-    padding: 5px;
+    margin: 20px 10px;
+    /* padding: 10px 0; */
     text-transform: uppercase;
     width: 100%;
     cursor: pointer;
+
+    font-size: 1.3rem;
+    font-weight: 700;
+    opacity: 0.8;
 }
 
 .edit-event button:disabled {

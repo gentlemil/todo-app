@@ -1,5 +1,4 @@
 .countdown {
-    background: linear-gradient(#368af4, #3181f2);
     color: seashell;
     font-size: 1.5rem;
     padding: 25px;
@@ -10,6 +9,11 @@
     display: none;
     float: right;
     font-size: 1.2rem;
+}
+
+.countdown:hover {
+    background: rgb(255, 245, 238, 0.1);
+    transition: 0.3s all ease-in-out;
 }
 
 .countdown:hover .countdown__icons {

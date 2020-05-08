@@ -1,10 +1,22 @@
 #root,
 .app {
-  height: 100%;
+  /* height: 100%; */
+
 }
 
 .app {
-  background-color: #3181f2;
-  max-width: 500px;
+  background: linear-gradient(#603813, #b29f94);
+  max-width: 600px;
   margin: 0 auto;
+  height: 100%;
+
+}
+
+.app .space {
+  height: 1.5px;
+  width: 60%;
+  margin: 0 auto;
+  background: seashell;
+  margin: 20px auto;
+
 }

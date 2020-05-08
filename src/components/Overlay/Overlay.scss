@@ -1,0 +1,103 @@
+.overlay {
+    float: right;
+
+    .overlay span {
+        display: none;
+        cursor: pointer;
+        float: right;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+
+    }
+
+    .overlay__modal {
+        display: none;
+        color: seashell;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        padding: 1rem 0rem;
+        position: fixed;
+        height: 100%;
+        background: rgba(46, 27, 9, 0.8);
+        box-shadow: 1px 0px 7px rgb(0, 0, 0.5);
+        top: 0;
+        left: 40%;
+        margin: 0 auto;
+        width: 378px;
+        z-index: 200;
+
+        .overlay__close {
+            padding-left: 1.5rem;
+            line-height: 3rem;
+            font-size: 1.5rem;
+        }
+
+        // ---!
+
+        .overlay-content-upper {
+            height: 110px;
+            margin: 1rem 0;
+            padding: 1rem;
+            margin: 1rem;
+            border-left: 2px solid seashell;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            h1 {
+                padding: 0;
+                margin: 0;
+                font-size: 2rem;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+                margin: 0;
+
+                i {
+                    padding-right: 40px;
+                }
+
+            }
+        }
+
+        .overlay-content-lower {
+            padding: 1rem;
+            margin-left: 1rem;
+            border-left: 2px solid seashell;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+
+            h3 {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+
+                i {
+                    padding-right: 40px;
+                }
+            }
+
+            p {
+                font-size: 1.4rem;
+                letter-spacing: 1.6px;
+            }
+        }
+
+        .space {
+            height: 1.5px;
+            width: 60%;
+            margin: 0 auto;
+            background: seashell;
+            margin-top: 50px;
+        }
+    }
+
+    .overlay__modal--visible {
+        display: block;
+    }
+
+
+}

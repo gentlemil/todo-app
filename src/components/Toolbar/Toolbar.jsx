@@ -12,7 +12,7 @@ import './Toolbar.scss'
 
 const Toolbar = (props) => {
     return (
-        <header className='toolbar'>
+        <header className='toolbar' style={{ maxWidth: '700px' }}>
             <nav className='toolbar__navigation'>
                 <div className='toolbar__toggle-button'>
                     <DrawerToggleButton click={props.drawerClickHandler} />
@@ -22,8 +22,8 @@ const Toolbar = (props) => {
 
                 <div className='toolbar_navigation-items'>
                     <ul>
-                        <li><Link to='/about'>ADD</Link></li>
-                        <li><Link to='/resume'>SHOW ALL</Link></li>
+                        <li><Link to='/create'>ADD</Link></li>
+                        <li><Link to='/events-list'>SHOW ALL</Link></li>
                         <li><Link to='/contact'>CALENDAR</Link></li>
                     </ul>
                 </div>
